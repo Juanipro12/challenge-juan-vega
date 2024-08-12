@@ -3,7 +3,7 @@ import fs from 'fs';
 import path, { join } from 'path';
 
 // Use the /tmp directory for writable operations
-const UPLOAD_DIR =  join('/tmp', 'data.json');
+const UPLOAD_DIR =  join('/tmp/');
 
 // Ensure the directory exists
 if (!fs.existsSync(UPLOAD_DIR)) {

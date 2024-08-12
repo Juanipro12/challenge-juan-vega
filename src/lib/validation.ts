@@ -20,7 +20,7 @@ function validateRuc(ruc: string): boolean {
 export function validatePhoneNumber(phoneNumber: string): boolean {
   const normalizedPhoneNumber = phoneNumber.replace(/[^\d+]/g, '');
 
-  
-  const phoneNumberPattern = /^(?:\+593|0)(?:[1-9]\d{8})$/;
+  const phoneNumberPattern = /^\+?\d+$/;
+
   return phoneNumberPattern.test(normalizedPhoneNumber);
 }

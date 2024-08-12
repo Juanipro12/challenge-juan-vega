@@ -2,11 +2,18 @@ import Slider from "@/components/Slider";
 import Temperature from "@/components/Temperature";
 import Image from "next/image";
 
+async function getData(userId: string) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECT_URL!}api/users/${userId}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
 
 export default async function Page({ params }: { params: { userId: string } }) {
-  const userId = params.userId;
-  const res = await fetch(`/api/users/${userId}`)
-  const data = await res.json()
+  const data = await getData(params.userId);
   const { user, billingInfo, images } = data;
 
   return (

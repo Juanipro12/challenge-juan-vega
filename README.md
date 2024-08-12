@@ -11,7 +11,7 @@ Asegúrate de tener instalados Node.js y npm en tu entorno de desarrollo.
 1. **Clonar el repositorio:**
 
    ```bash
-   git clone [ENLACE_DEL_REPOSITORIO]
+   git clone https://github.com/Juanipro12/challenge-juan-vega
 
 2. **Acceder al directorio del proyecto:**
 
@@ -33,7 +33,7 @@ Asegúrate de tener instalados Node.js y npm en tu entorno de desarrollo.
    ```bash
    npm run dev
 
-El proyecto debería estar disponible en
+El proyecto debería estar disponible en [text](https://challenge-juan-vega-beryl.vercel.app/)
 
 ## Tecnologías Utilizadas
 

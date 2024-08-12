@@ -1,9 +1,9 @@
 import { FileEntry } from '@/types/file';
 import fs from 'fs';
-import path from 'path';
+import path, { join } from 'path';
 
 // Use the /tmp directory for writable operations
-const UPLOAD_DIR = path.join('/tmp', 'uploads');
+const UPLOAD_DIR =  join('/tmp', 'data.json');
 
 // Ensure the directory exists
 if (!fs.existsSync(UPLOAD_DIR)) {

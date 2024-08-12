@@ -6,7 +6,7 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'challenge-juan-vega.s3.us-east-1.amazonaws.com',
                 port: '',
-                pathname: '',
+                pathname: '**',
             },
         ],
     },

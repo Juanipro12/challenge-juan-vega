@@ -3,7 +3,13 @@ import Temperature from "@/components/Temperature";
 import Image from "next/image";
 
 async function getData(userId: string) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECT_URL!}api/users/${userId}`);
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL; 
+
+  if (!baseUrl) {
+    throw new Error("API base URL is not defined");
+  }
+
+  const res = await fetch(`${baseUrl}/api/users/${userId}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -32,7 +38,7 @@ export default async function Page({ params }: { params: { userId: string } }) {
         </div>
         <div className="md:w-1/2 w-full flex flex-col gap-5">
           <div className="bg-[#181A1F] px-[16px] py-[24px] w-full border-[#272A33] rounded-xl flex flex-col gap-5">
-            <h3 className="text-[#9396A5] font-[20px]">Información Personal</h3>           
+            <h3 className="text-[#9396A5] font-[20px]">Información Personal</h3>
             <div className="tounded-md border-[#272A33] rounded-xl border p-2">
               <div className="font-normal text-[#9396A5] text-[14px]">Nombre</div>
               <div className="text-[16px] font-normal text-[#FFFFFF]">{user.firstName}</div>
@@ -74,7 +80,7 @@ export default async function Page({ params }: { params: { userId: string } }) {
             </div>
           </div>
           <div className="bg-[#181A1F] px-[16px] py-[24px] w-full border-[#272A33] rounded-xl flex flex-col gap-5">
-          <h3 className="text-[#9396A5] font-[20px]">Datos de facturacion</h3>
+            <h3 className="text-[#9396A5] font-[20px]">Datos de facturacion</h3>
             <div className="tounded-md border-[#272A33] rounded-xl border p-3">
               <div className="font-normal text-[#9396A5] text-[14px]">Nombre</div>
               <div className="text-[16px] font-normal text-[#FFFFFF]">{billingInfo.firstName}</div>

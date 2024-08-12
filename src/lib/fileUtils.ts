@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 // Make sure the directory exists
-const UPLOAD_DIR = path.resolve(process.cwd(), 'uploads');
+const UPLOAD_DIR = path.join('/tmp', 'uploads');
 
 
 export const readFile = async (

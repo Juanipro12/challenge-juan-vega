@@ -3,7 +3,7 @@ import Temperature from "@/components/Temperature";
 import Image from "next/image";
 
 async function getData(userId: string) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECT_URL!}api/users/${userId}`);
+    const res = await fetch(`/api/users/${userId}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

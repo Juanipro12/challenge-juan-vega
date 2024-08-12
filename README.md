@@ -33,7 +33,7 @@ Asegúrate de tener instalados Node.js y npm en tu entorno de desarrollo.
    ```bash
    npm run dev
 
-El proyecto debería estar disponible en [text](https://challenge-juan-vega-beryl.vercel.app/)
+El proyecto debería estar disponible en [https://challenge-juan-vega-beryl.vercel.app/](https://challenge-juan-vega-beryl.vercel.app/)
 
 ## Tecnologías Utilizadas
 

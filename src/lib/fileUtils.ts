@@ -2,9 +2,13 @@ import { FileEntry } from '@/types/file';
 import fs from 'fs';
 import path from 'path';
 
-// Make sure the directory exists
+// Use the /tmp directory for writable operations
 const UPLOAD_DIR = path.join('/tmp', 'uploads');
 
+// Ensure the directory exists
+if (!fs.existsSync(UPLOAD_DIR)) {
+  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+}
 
 export const readFile = async (
   formData: FormData,
@@ -12,17 +16,13 @@ export const readFile = async (
 ): Promise<Record<string, FileEntry[]>> => {
   const files: Record<string, FileEntry[]> = {};
   console.log(formData);
-  
+
   for (const [key, value] of formData.entries()) {
     if (value instanceof File) {
       const file = value;
       const buffer = Buffer.from(await file.arrayBuffer());
 
-      if (!fs.existsSync(UPLOAD_DIR)) {
-        fs.mkdirSync(UPLOAD_DIR);
-      }
-
-      const filePath = path.resolve(UPLOAD_DIR, file.name);
+      const filePath = path.join(UPLOAD_DIR, file.name);
 
       if (saveLocally) {
         fs.writeFileSync(filePath, buffer);
